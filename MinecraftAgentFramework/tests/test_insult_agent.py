@@ -1,4 +1,8 @@
 import unittest
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from agents.insult_agent import InsultAgent
 
 class TestInsultAgent(unittest.TestCase):
