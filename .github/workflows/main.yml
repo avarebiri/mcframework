@@ -31,6 +31,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install mcpi
           pip install ollama
+          pip install requests
           pip install pytest pytest-cov
           
       - name: Start Test Server
