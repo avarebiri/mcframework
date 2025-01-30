@@ -15,7 +15,7 @@ jobs:
       test-server:
         image: python:3.8-slim
         ports:
-          - 8000:8000
+          - 4711:4711
     
     steps:
       - name: Checkout Repository
@@ -41,7 +41,7 @@ jobs:
       - name: Run Tests with Coverage
         env:
           TEST_MODE: 'ci'
-          TEST_SERVER_URL: 'http://localhost:8000'
+          TEST_SERVER_URL: 'http://localhost:4711'
         run: |
           pytest --cov=agents --cov=framework --cov-report=xml
           
