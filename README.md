@@ -100,87 +100,20 @@ The framework follows the Inversion of Control (IoC) principle. The agent should
 
 4.3- Calls on_stop() when stopping the framework.
 
-5. UML Diagrams
 
-Class Diagram
-
-+-------------------+
-|    BaseAgent     |
-|-------------------|
-| +on_start()      |
-| +on_tick()       |
-| +on_stop()       |
-+-------------------+
-        ^
-        |
-+-------------------+
-| OracleAgent      |
-| InsultAgent      |
-| TNTAgent         |
-+-------------------+
-        |
-+-------------------+
-| AgentFramework   |
-|-------------------|
-| +register_agent()|
-| +run()           |
-+-------------------+
-
-
-Sequence Diagram
-
-User         Framework        Agent
-  |              |              |
-  | Start Main   |              |
-  |------------->|              |
-  |              | on_start()   |
-  |              |------------->|
-  |              |  Execution   |
-  |              |<-------------|
-  |              | on_tick()    |
-  |              |------------->|
-  |              |  Execution   |
-  |              |<-------------|
-  | Stop Signal  |              |
-  |------------->| on_stop()    |
-  |              |------------->|
-  
-Component Diagram
-
-+--------------------+
-|   Minecraft Server |
-+--------------------+
-          |
-          v
-+--------------------+
-|  Agent Framework  |
-+--------------------+
-| - Manages Agents  |
-| - Controls Cycle  |
-+--------------------+
-          |
-          v
-+---------------------+
-|      Agents        |
-+---------------------+
-| OracleAgent        |
-| InsultAgent        |
-| TNTAgent           |
-+---------------------+
-
-6. Running the Framework
+5. Running the Framework
 
 Installation & Setup
 
-6.1- Install dependencies:
+5.1- Install dependencies:
 
 -pip install mcpi ollama
 
-6.2- Run the framework:
+5.2- Run the framework:
 
 -python main.py
 
-7. Unit Testing & Code Coverage
+6. Unit Testing & Code Coverage
 
 To run tests:
 
