@@ -28,6 +28,7 @@ jobs:
 
       - name: Run Tests with Coverage
         run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
           pytest --cov=agents --cov=framework --cov-report=xml
 
       - name: Upload Coverage to Codecov
@@ -35,5 +36,4 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.xml
-          flags: unittests
-          name: codecov-minecraft-framework
+          fail_ci_if_error: true
