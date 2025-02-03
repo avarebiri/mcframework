@@ -1,8 +1,5 @@
 import unittest
-import sys
-import os
-
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from unittest.mock import MagicMock, patch
 from framework.framework import AgentFramework
 from agents.oracle_agent import OracleAgent
 from agents.insult_agent import InsultAgent
@@ -19,8 +16,11 @@ class TestAgentFramework(unittest.TestCase):
         self.framework.register_agent(TNTAgent)
         self.assertEqual(len(self.framework.agents), 3, "Framework should have 3 registered agents.")
 
-    def test_agent_execution(self):
-        """Test if framework properly starts and stops agents."""
+    @patch("agents.oracle_agent.Minecraft.create", return_value=MagicMock())
+    @patch("agents.insult_agent.Minecraft.create", return_value=MagicMock())
+    @patch("agents.tnt_agent.Minecraft.create", return_value=MagicMock())
+    def test_agent_execution(self, mock_minecraft_oracle, mock_minecraft_insult, mock_minecraft_tnt):
+        """Test if framework properly starts and stops agents with mocked Minecraft connection."""
         self.framework.register_agent(OracleAgent)
         self.framework.register_agent(InsultAgent)
         self.framework.register_agent(TNTAgent)
