@@ -1,3 +1,7 @@
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 class TestOracleAgent(unittest.TestCase):
     def setUp(self):
         self.agent = OracleAgent()
