@@ -17,3 +17,7 @@ class BaseAgent(ABC):
         """Default implementation to support abstract requirement."""
         while True:
             self.on_tick()
+    
+    @abstractmethod
+    def on_stop(self):
+        pass
